@@ -20,7 +20,7 @@ The project demonstrates an end-to-end analytics workflow:
 ---
 
 ## 1. Top Paying Data Analyst Jobs
-![Top Paying Jobs](chart_top_paying_jobs.png)
+![Top Paying Jobs](assets\chart_top_paying_jobs.png)
 
 ### 🔍 Key Insights
 - The highest-paying Data Analyst roles are typically **senior or specialized positions**, showing strong salary growth with experience.
@@ -51,7 +51,7 @@ LIMIT 10;
 ---
 
 ## 2. Skills Required for Top Paying Roles
-![Top Paying Job Skills](chart_top_paying_job_skills.png)
+![Top Paying Job Skills](assets\chart_top_paying_job_skills.png)
 
 ### 🔍 Key Insights
 
@@ -93,7 +93,7 @@ ORDER BY top_paying_jobs.salary_year_avg DESC;
 ---
 
 ## 3. Most In-Demand Data Analyst Skills
-![Most In-Demand Skills](chart_demand_skills.png)
+![Most In-Demand Skills](assets\chart_demand_skills.png)
 
 ### 🔍 Key Insights
 
@@ -122,7 +122,7 @@ LIMIT 5;
 ---
 
 ## 4. Skills with the Highest Average Salary
-![Highest Paying Skills](chart_paying_skills.png)
+![Highest Paying Skills](assets\chart_paying_skills.png)
 
 ### 🔍 Key Insights
 
@@ -153,7 +153,7 @@ LIMIT 25;
 ---
 
 ## 5. Optimal Skills: Demand vs Salary
-![Optimal Skills](chart_optimal_skills.png)
+![Optimal Skills](assets\chart_optimal_skills.png)
 
 ### 🔍 Key Insights
 
