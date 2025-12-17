@@ -20,15 +20,14 @@ The project demonstrates an end-to-end analytics workflow:
 ---
 
 ## 1. Top Paying Data Analyst Jobs
-![Top Paying Jobs](assets\chart_top_paying_jobs.png)
+![Top Paying Jobs](assets/chart_top_paying_jobs.png)
 
 ### 🔍 Key Insights
 - The highest-paying Data Analyst roles are typically **senior or specialized positions**, showing strong salary growth with experience.
 - **Large tech and enterprise companies** dominate the top salary brackets.
 - High compensation is not limited to on-site roles—**remote and flexible jobs** also appear among the top-paying positions.
 
-///
-
+```sql
 SELECT
     job_id,
     job_title,
@@ -46,12 +45,12 @@ WHERE
 ORDER BY
     salary_year_avg DESC
 LIMIT 10;
+```
 
-///
 ---
 
 ## 2. Skills Required for Top Paying Roles
-![Top Paying Job Skills](assets\chart_top_paying_job_skills.png)
+![Top Paying Job Skills](assets/chart_top_paying_job_skills.png)
 
 ### 🔍 Key Insights
 
@@ -59,8 +58,7 @@ LIMIT 10;
 - **High-paying roles** demand skill stacking, not single-tool expertise.
 - Advanced tools such as **Python, BI tools, and cloud technologies** are strongly associated with higher salaries.
 
-///
-
+```sql
 WITH top_paying_jobs AS (
     SELECT
         job_id,
@@ -88,12 +86,11 @@ INNER JOIN skills_job_dim
 INNER JOIN skills_dim
     ON skills_job_dim.skill_id = skills_dim.skill_id
 ORDER BY top_paying_jobs.salary_year_avg DESC;
-
-///
+```
 ---
 
 ## 3. Most In-Demand Data Analyst Skills
-![Most In-Demand Skills](assets\chart_demand_skills.png)
+![Most In-Demand Skills](assets/chart_demand_skills.png)
 
 ### 🔍 Key Insights
 
@@ -101,8 +98,7 @@ ORDER BY top_paying_jobs.salary_year_avg DESC;
 - **Excel and Python** continue to be core tools in the job market.
 - **Data visualization skills** highlight the importance of storytelling and communication.
 
-///
-
+```sql
 SELECT
     skills_dim.skills,
     COUNT(skills_job_dim.job_id) AS demand_count
@@ -118,11 +114,11 @@ GROUP BY
 ORDER BY
     demand_count DESC
 LIMIT 5;
-///
+```
 ---
 
 ## 4. Skills with the Highest Average Salary
-![Highest Paying Skills](assets\chart_paying_skills.png)
+![Highest Paying Skills](assets/chart_paying_skills.png)
 
 ### 🔍 Key Insights
 
@@ -130,8 +126,7 @@ LIMIT 5;
 - **Salary premiums increase with technical depth and complexity**.
 - **High-paying skills** often appear in fewer postings, making them valuable but competitive.
 
-///
-
+```sql
 SELECT
     skills_dim.skills,
     ROUND(AVG(salary_year_avg), 0) AS average_salary
@@ -149,11 +144,11 @@ ORDER BY
     average_salary DESC
 LIMIT 25;
 
-///
+```
 ---
 
 ## 5. Optimal Skills: Demand vs Salary
-![Optimal Skills](assets\chart_optimal_skills.png)
+![Optimal Skills](assets/chart_optimal_skills.png)
 
 ### 🔍 Key Insights
 
@@ -161,7 +156,7 @@ LIMIT 25;
 - **Python and BI tools** provide strong secondary leverage.
 - Extremely niche skills may offer **high pay but pose higher career risk due to low demand**.
 
-///
+```sql
 
 SELECT
     skills_dim.skill_id,
@@ -185,7 +180,8 @@ ORDER BY
     average_salary DESC
 LIMIT 25;
 
-///
+```
+
 ---
 
 ## Tools
